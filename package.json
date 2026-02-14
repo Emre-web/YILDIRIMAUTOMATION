@@ -1,0 +1,25 @@
+{
+  "name": "copy-of-rpa-portfolio-elite",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^7.0.9",
+    "lucide-react": "^0.562.0",
+    "next": "14.1.0",
+    "nodemailer": "^8.0.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "~5.8.2"
+  }
+}
