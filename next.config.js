@@ -1,36 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  output: 'export',
   images: {
-    domains: ['vercel.com'],
+    unoptimized: true,
   },
+  basePath: process.env.NODE_ENV === 'production' ? '/emre-yildirim-portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://emreyildirimx.github.io/emre-yildirim-portfolio/' : '',
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-        ],
-      },
-    ];
   },
 };
 
