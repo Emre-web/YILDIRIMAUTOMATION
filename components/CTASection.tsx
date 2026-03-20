@@ -1,7 +1,9 @@
 
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export const CTASection: React.FC = () => {
+  const { t } = useLanguage();
   return (
     <section className="px-4 py-16">
       <div className="max-w-4xl mx-auto">
@@ -12,16 +14,16 @@ export const CTASection: React.FC = () => {
           
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-4xl font-bold font-heading text-white mb-4">
-              Have a process you want to automate?
+              {t.haveProcessToAutomate}
             </h2>
             <p className="text-base text-white/70 mb-6 font-light max-w-xl mx-auto">
-              Stop fighting manual tasks. Let's turn your complex workflows into reliable, scalable automation solutions.
+              {t.ctaDescription}
             </p>
             <a 
               href="#contact" 
               className="inline-block bg-white text-slate-950 px-6 py-3 rounded-xl font-medium text-base hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-black/10"
             >
-              Contact for Automation
+              {t.contactForAutomation}
             </a>
           </div>
         </div>

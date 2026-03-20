@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { Expertise } from '../components/Expertise';
 import { TechStack } from '../components/TechStack';
 import { Solutions } from '../components/Solutions';
+import { ShowcaseSection } from '../components/ShowcaseSection';
 import { CTASection } from '../components/CTASection';
 import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
@@ -23,6 +24,7 @@ const HomePage = () => {
           <Expertise />
           <TechStack />
           <Solutions />
+          <ShowcaseSection />
           <CTASection />
           <Contact />
         </main>

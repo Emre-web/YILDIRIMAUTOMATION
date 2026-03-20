@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -14,8 +15,8 @@ export default function Document() {
           h1, h2, h3, h4, .font-heading { font-family: 'Space Grotesk', sans-serif; }
           .glass-card { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
           .glass-card:hover { border-color: rgba(139, 92, 246, 0.5); background: rgba(30, 41, 59, 0.7); box-shadow: 0 0 30px rgba(139, 92, 246, 0.1); }
-          .gradient-text { background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-          .bg-gradient-main { background: linear-gradient(135deg, #0B1C2D 0%, #3A1C71 100%); }
+          .gradient-text { background: linear-gradient(135deg, #60a5fa, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+          .bg-gradient-main { background: linear-gradient(135deg, #0B1C2D 0%, #1e3a8a 100%); }
           .glow-hover:hover { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
           @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
           .animate-gradient { background-size: 200% 200%; animation: gradient-move 8s ease infinite; }

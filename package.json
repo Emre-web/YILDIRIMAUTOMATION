@@ -10,17 +10,23 @@
     "export": "next export -o out"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
     "lucide-react": "^0.562.0",
     "next": "^14.1.0",
-    "nodemailer": "^8.0.1",
+    "nodemailer": "^8.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "resend": "^6.9.4"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@types/nodemailer": "^7.0.9",
     "@types/react": "18.3.28",
     "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.27",
+    "eslint": "^9.0.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.8.2"
   },
   "engines": {

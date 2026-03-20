@@ -10,7 +10,7 @@ const techs = [
   { name: 'n8n', color: 'hover:text-orange-500 hover:shadow-orange-500/20' },
   { name: 'APIs', color: 'hover:text-purple-400 hover:shadow-purple-400/20' },
   { name: 'SQL', color: 'hover:text-indigo-400 hover:shadow-indigo-400/20' },
-  { name: 'Pandas', color: 'hover:text-pink-400 hover:shadow-pink-400/20' },
+  { name: 'Pandas', color: 'hover:text-purple-400 hover:shadow-purple-400/20' },
   { name: 'PyAutoGUI', color: 'hover:text-cyan-400 hover:shadow-cyan-400/20' },
 ];
 
