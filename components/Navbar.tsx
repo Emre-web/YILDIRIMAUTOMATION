@@ -21,7 +21,7 @@ export const Navbar: React.FC = () => {
       scrolled ? 'bg-blue-950/95 backdrop-blur-xl border-b border-white/10 shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-18 lg:h-22">
+        <div className="flex justify-between items-center h-16 sm:h-16 lg:h-20">
           <div className="flex-shrink-0">
             <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold font-heading tracking-tighter uppercase">
               <span className="text-white">YILDIRIM</span>
