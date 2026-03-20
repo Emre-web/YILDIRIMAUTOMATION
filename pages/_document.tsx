@@ -7,6 +7,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
         <style>{`
           html { scroll-behavior: smooth; }
           body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
@@ -16,7 +17,7 @@ export default function Document() {
           .gradient-text { background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
           .bg-gradient-main { background: linear-gradient(135deg, #0B1C2D 0%, #3A1C71 100%); }
           .glow-hover:hover { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
-          @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+          @keyframes gradient-move { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
           .animate-gradient { background-size: 200% 200%; animation: gradient-move 8s ease infinite; }
           ::-webkit-scrollbar { width: 8px; }
           ::-webkit-scrollbar-track { background: #020617; }
