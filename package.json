@@ -19,6 +19,8 @@
     "resend": "^6.9.4"
   },
   "devDependencies": {
+    "@eslint/config-array": "^0.18.0",
+    "@eslint/object-schema": "^2.1.0",
     "@types/node": "^22.14.0",
     "@types/nodemailer": "^7.0.9",
     "@types/react": "18.3.28",

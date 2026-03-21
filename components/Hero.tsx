@@ -60,15 +60,15 @@ export const Hero: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20 sm:pt-0">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-32 sm:pt-20">
         {/* Eyebrow - Top small badge */}
-        <div className="relative z-20 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 text-slate-300 text-xs sm:text-sm font-mono mb-8 sm:mb-12 tracking-wide backdrop-blur-sm shadow-lg shadow-green-500/20">
+        <div className="relative z-50 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 text-slate-300 text-xs sm:text-sm font-mono mb-8 sm:mb-12 tracking-wide backdrop-blur-sm shadow-lg shadow-green-500/20">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500"></span>
           <span className="font-sans text-xs sm:text-sm whitespace-nowrap">{t.availableForProjects}</span>
         </div>
         
         {/* Main Headline - Pyramid structure top */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading mb-16 leading-[1.0] tracking-tight max-w-4xl mx-auto">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading mb-16 leading-[1.0] tracking-tight max-w-6xl mx-auto">
           <span className="text-white font-black block mb-4">{t.iBuild}</span>
           <div className="relative inline-flex items-center justify-center">
             <span className="gradient-text relative z-10 bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent font-black">
@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
         </h1>
         
         {/* Sub-headline - Pyramid structure middle */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 bg-gradient-to-r from-green-600/20 to-emerald-600/20 px-6 py-4 rounded-xl border border-green-500/30 backdrop-blur-sm mb-20 shadow-lg shadow-green-500/20 max-w-2xl mx-auto animate-pulse" style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.15) 0%, rgba(16,185,129,0.15) 100%)', borderImage: 'linear-gradient(135deg, rgba(34,197,94,0.3) 0%, rgba(16,185,129,0.3) 100%) 1', animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 bg-gradient-to-r from-green-600/20 to-emerald-600/20 px-6 py-4 rounded-xl border border-green-500/30 backdrop-blur-sm mb-20 shadow-lg shadow-green-500/20 max-w-2xl mx-auto animate-pulse">
           <span className="text-white font-bold font-mono text-lg tracking-wide drop-shadow-lg">{t.thatWorks247}</span>
           <div className="flex gap-1">
             {[...Array(3)].map((_, i) => (
