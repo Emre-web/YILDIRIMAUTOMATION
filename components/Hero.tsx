@@ -62,9 +62,9 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20 sm:pt-0">
         {/* Eyebrow - Top small badge */}
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 text-slate-300 text-xs sm:text-sm font-mono mb-8 sm:mb-12 tracking-wide backdrop-blur-sm shadow-lg shadow-green-500/20">
+        <div className="relative z-20 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 text-slate-300 text-xs sm:text-sm font-mono mb-8 sm:mb-12 tracking-wide backdrop-blur-sm shadow-lg shadow-green-500/20">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500"></span>
-          <span className="font-sans text-xs sm:text-sm">{t.availableForProjects}</span>
+          <span className="font-sans text-xs sm:text-sm whitespace-nowrap">{t.availableForProjects}</span>
         </div>
         
         {/* Main Headline - Pyramid structure top */}
