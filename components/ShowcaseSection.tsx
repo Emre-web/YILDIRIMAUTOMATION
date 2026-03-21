@@ -61,7 +61,7 @@ export const ShowcaseSection: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-blue-500/30 to-indigo-500/30 rounded-2xl blur-lg"></div>
                   <div className="relative bg-slate-800/50 backdrop-blur-md border border-white/20 rounded-2xl p-4">
                     <img
-                      src="/showcase-image.jpg"
+                      src="/WhatsApp Görsel 2025-11-19 saat 16.02.34_0a2475f5.jpg"
                       alt="Premium Automation Solution"
                       width={400}
                       height={300}
