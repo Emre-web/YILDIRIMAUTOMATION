@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, Bot, Workflow, FileText, Monitor, Database, ChevronDown, ChevronUp } from 'lucide-react';
+import { Globe, Bot, Workflow, FileText, Monitor, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const expertises = {
@@ -181,7 +181,7 @@ const expertises = {
   ]
 };
 
-const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }> = ({ item, cardIndex }) => {
+const ServiceCard: React.FC<{ item: any; cardIndex: number }> = ({ item, cardIndex }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { language } = useLanguage();
 
@@ -189,121 +189,111 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
     <div 
       style={{
         background: 'rgba(30,41,59,0.5)',
-        border: '1px solid rgba(255,255,255,0.1)',
+        border: `1px solid ${isExpanded ? 'rgba(59,130,246,0.5)' : 'rgba(255,255,255,0.1)'}`,
         borderRadius: '1rem',
         padding: '2rem',
+        transition: 'all 0.3s ease',
+        boxShadow: isExpanded ? '0 10px 15px -3px rgba(59,130,246,0.1)' : 'none'
       }}
     >
-      {isExpanded ? (
-        <div style={{ border: '1px solid rgba(59,130,246,0.3)', boxShadow: '0 10px 15px -3px rgba(59,130,246,0.1), 0 4px 6px -2px rgba(59,130,246,0.05)' }}></div>
-      ) : (
-        <div style={{ border: '1px solid rgba(255,255,255,0.05)' }}></div>
-      )}
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
-          <div style={{ width: '3rem', height: '3rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', transition: 'transform 0.3s ease' }}>
+          <div style={{ 
+            width: '3rem', 
+            height: '3rem', 
+            backgroundColor: 'rgba(255,255,255,0.05)', 
+            borderRadius: '0.75rem', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            marginBottom: '1.5rem' 
+          }}>
             {item.icon}
           </div>
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
             style={{
               color: isExpanded ? '#60a5fa' : '#94a3b8',
-              transition: 'color 0.3s ease',
-              padding: '0.5rem',
-              marginTop: '-0.5rem',
-              marginRight: '-0.5rem',
               cursor: 'pointer',
               background: 'none',
               border: 'none'
             }}
-            aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
           >
-            {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+            {isExpanded ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
           </button>
         </div>
         
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', fontFamily: "'Space Grotesk', sans-serif", marginBottom: '0.75rem' }}>{item.title}</h3>
+        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#f8fafc' }}>
+          {item.title}
+        </h3>
         <p style={{ color: '#94a3b8', fontSize: '0.875rem', lineHeight: '1.625', marginBottom: '1.5rem' }}>
           {item.description}
         </p>
         
         <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-          <h4 style={{ fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{language === 'en' ? 'Tools & Technologies:' : 'Araçlar & Teknolojiler:'}</h4>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.75rem', color: '#cbd5e1' }}>
+          <h4 style={{ fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#cbd5e1' }}>
+            {language === 'en' ? 'Tools & Technologies:' : 'Araçlar & Teknolojiler:'}
+          </h4>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
             {item.tools.map((tool, toolIdx) => (
-              <span key={toolIdx} style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.5rem', borderRadius: '0.25rem' }}>{tool}</span>
+              <span key={toolIdx} style={{ 
+                backgroundColor: 'rgba(255,255,255,0.05)', 
+                padding: '0.25rem 0.5rem', 
+                borderRadius: '0.25rem',
+                fontSize: '0.75rem',
+                color: '#94a3b8'
+              }}>{tool}</span>
             ))}
           </div>
         </div>
-        <div 
-          style={{
-            transition: 'all 0.3s ease',
-            overflow: 'hidden',
-            maxHeight: isExpanded ? '24rem' : '0',
-            opacity: isExpanded ? '1' : '0',
-            marginTop: isExpanded ? '1rem' : '0'
-          }}
-        >
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1rem' }}>
-            <h4 style={{ fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#60a5fa' }}>IMPLEMENTATION DETAILS</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+
+        <div style={{
+          transition: 'all 0.4s ease-in-out',
+          maxHeight: isExpanded ? '500px' : '0',
+          opacity: isExpanded ? '1' : '0',
+          overflow: 'hidden'
+        }}>
+          <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+            <h4 style={{ fontSize: '0.75rem', fontWeight: 'bold', marginBottom: '0.75rem', color: '#60a5fa', letterSpacing: '0.05em' }}>
+              {language === 'en' ? 'IMPLEMENTATION DETAILS' : 'UYGULAMA DETAYLARI'}
+            </h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {item.details.map((detail, idx) => (
-                <li key={idx} style={{ display: 'flex', alignItems: 'flex-start' }}>
+                <li key={idx} style={{ display: 'flex', marginBottom: '0.5rem', fontSize: '0.875rem', color: '#94a3b8' }}>
                   <span style={{ color: '#60a5fa', marginRight: '0.5rem' }}>•</span>
-                  <span style={{ color: '#94a3b8', fontSize: '0.875rem' }}>{detail}</span>
+                  {detail}
                 </li>
               ))}
             </ul>
-          </div>
-          <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-              <a 
-                href="#contact" 
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  fontSize: '0.875rem',
-                  color: '#60a5fa',
-                  transition: 'color 0.3s ease'
-                }}
-              >
-                Request a free consultation
+            <div style={{ marginTop: '1.5rem' }}>
+              <a href="#contact" style={{ color: '#60a5fa', textDecoration: 'none', fontSize: '0.875rem', fontWeight: '500' }}>
+                {language === 'en' ? 'Request a free consultation →' : 'Ücretsiz danışmanlık talep edin →'}
               </a>
             </div>
           </div>
         </div>
-        
+
         <button 
           onClick={() => setIsExpanded(!isExpanded)}
           style={{
-            marginTop: 'auto',
-            paddingTop: '1rem',
-            fontSize: '0.875rem',
-            color: '#94a3b8',
-            transition: 'color 0.3s ease',
+            marginTop: '1.5rem',
+            background: 'none',
+            border: 'none',
+            color: '#64748b',
+            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            cursor: 'pointer'
+            fontSize: '0.875rem',
+            padding: 0
           }}
         >
-          {isExpanded ? 'Show less' : 'Learn more'}
-          <svg 
-            className="w-4 h-4 ml-1"
-            style={{ 
-              transition: 'transform 0.2s ease',
-              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'
-            }} 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          >
-            <path d="m6 9 6 6"></path>
-          </svg>
+          {isExpanded ? (language === 'en' ? 'Show less' : 'Daha az göster') : (language === 'en' ? 'Learn more' : 'Detayları gör')}
+          <ChevronDown style={{ 
+            marginLeft: '0.25rem', 
+            width: '1rem', 
+            transition: 'transform 0.3s',
+            transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' 
+          }} />
         </button>
       </div>
     </div>
@@ -314,16 +304,18 @@ export const Expertise: React.FC = () => {
   const { language, t } = useLanguage();
 
   return (
-    <section id="expertise" className="py-24 px-6">
+    <section id="expertise" className="py-24 px-6" style={{ backgroundColor: '#0f172a' }}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6">{t.automationServices}</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ color: '#f8fafc', fontFamily: 'inherit' }}>
+            {t.automationServices}
+          </h2>
           <p className="text-slate-400 text-lg leading-relaxed max-w-3xl mx-auto">
             {t.customAutomationSolutions}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {expertises[language].map((item, idx) => (
             <ServiceCard key={idx} item={item} cardIndex={idx} />
           ))}

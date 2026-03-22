@@ -83,8 +83,15 @@ export const Hero: React.FC = () => {
       
       {/* Data node constellation pattern */}
       <div 
-        className="absolute inset-0"
-        style={{ opacity: 0.3, pointerEvents: 'none' }}
+        style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          right: 0, 
+          bottom: 0, 
+          opacity: 0.3, 
+          pointerEvents: 'none' 
+        }}
       >
         <div 
           style={{ 
@@ -95,91 +102,126 @@ export const Hero: React.FC = () => {
       </div>
       
       {/* Soft blue light blooms */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full"
-        style={{
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+        <div style={{
+          position: 'absolute',
+          top: '25%',
+          left: '25%',
+          width: '16rem',
+          height: '16rem',
+          borderRadius: '50%',
           backgroundColor: 'rgba(59,130,246,0.1)',
           filter: 'blur(64px)',
           animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           animationDelay: '3s'
-        }}
-      ></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full"
-        style={{
+        }}></div>
+        <div style={{
+          position: 'absolute',
+          bottom: '25%',
+          right: '25%',
+          width: '16rem',
+          height: '16rem',
+          borderRadius: '50%',
           backgroundColor: 'rgba(168,85,247,0.1)',
           filter: 'blur(64px)',
           animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           animationDelay: '4s'
-        }}
-      ></div>
+        }}></div>
       </div>
 
-      <div 
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center"
-        style={{ paddingTop: '8rem' }}
-      >
+      <div style={{
+        position: 'relative',
+        zIndex: 10,
+        maxWidth: '64rem',
+        margin: '0 auto',
+        paddingLeft: '1rem',
+        paddingRight: '1rem',
+        textAlign: 'center',
+        paddingTop: '8rem'
+      }}>
         {/* Eyebrow - Top small badge */}
-        <div 
-              className="relative z-50 inline-flex items-center gap-2"
-              style={{
-                padding: '0.375rem 0.75rem 0.5rem 0.75rem',
-                borderRadius: '9999px',
-                background: 'linear-gradient(to right, rgba(34,197,94,0.1), rgba(16,185,129,0.1))',
-                border: '1px solid rgba(34,197,94,0.2)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
-                marginBottom: '2rem'
-              }}
-            >
-              <span 
-                className="w-2 h-2 rounded-full"
-                style={{
+        <div style={{
+              position: 'relative',
+              zIndex: 50,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.375rem 0.75rem 0.5rem 0.75rem',
+              borderRadius: '9999px',
+              background: 'linear-gradient(to right, rgba(34,197,94,0.1), rgba(16,185,129,0.1))',
+              border: '1px solid rgba(34,197,94,0.2)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
+              marginBottom: '2rem'
+            }}>
+              <span style={{
+                  width: '0.5rem',
+                  height: '0.5rem',
+                  borderRadius: '50%',
                   backgroundColor: '#22c55e',
                   animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                   boxShadow: '0 0 10px rgba(34,197,94,0.3), 0 10px 15px -3px rgba(34,197,94,0.3), 0 4px 6px -2px rgba(34,197,94,0.2)'
-                }}
-              ></span>
-              <span 
-                className="font-sans text-xs sm:text-sm whitespace-nowrap"
-                style={{ color: '#cbd5e1' }}
-              >{t.availableForProjects}</span>
+                }}></span>
+              <span style={{ 
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: '0.75rem',
+                  whiteSpace: 'nowrap',
+                  color: '#cbd5e1' 
+                }}>{t.availableForProjects}</span>
             </div>
         
         {/* Main Headline - Pyramid structure top */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading mb-16 leading-[1.0] tracking-tight max-w-6xl mx-auto"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          <span className="text-white font-black block mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{t.iBuild}</span>
-          <div className="relative inline-flex items-center justify-center">
-            <span 
-              className="gradient-text relative z-10"
-              style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                backgroundImage: 'linear-gradient(to right, #60a5fa, #3b82f6, #4f46e5)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent'
-              }}
-            >
+        <h1 style={{ 
+          fontSize: 'clamp(3rem, 8vw, 6rem)',
+          fontWeight: 900,
+          fontFamily: "'Space Grotesk', sans-serif",
+          marginBottom: '4rem',
+          lineHeight: 1,
+          letterSpacing: '-0.025em',
+          maxWidth: '72rem',
+          margin: '0 auto 4rem'
+        }}>
+          <span style={{ color: '#ffffff', fontWeight: 900, display: 'block', marginBottom: '1rem', fontFamily: "'Space Grotesk', sans-serif" }}>{t.iBuild}</span>
+          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span style={{
+              position: 'relative',
+              zIndex: 10,
+              fontFamily: "'Space Grotesk', sans-serif",
+              backgroundImage: 'linear-gradient(to right, #60a5fa, #3b82f6, #4f46e5)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent'
+            }}>
               {words[language][index].substring(0, subIndex)}
             </span>
             <>
-              <span 
-                className="animate-pulse font-light text-purple-400 ml-1"
-                style={{
-                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                }}
-              >|</span>
-              <div 
-                className="absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-blue-600/30 to-indigo-600/30 rounded-lg blur-xl"
-                style={{
-                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-                }}
-              ></div>
+              <span style={{
+                fontWeight: 300,
+                color: '#c084fc',
+                marginLeft: '0.25rem',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              }}>|</span>
+              <div style={{
+                position: 'absolute',
+                top: '-1rem',
+                left: '-1rem',
+                right: '-1rem',
+                bottom: '-1rem',
+                background: 'linear-gradient(to right, rgba(37,99,235,0.3), rgba(37,99,235,0.3), rgba(79,70,229,0.3))',
+                borderRadius: '0.5rem',
+                filter: 'blur(16px)',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+              }}></div>
               {React.createElement(icons[index % icons.length], {
-                className: "absolute -right-8 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-purple-400",
                 style: { 
+                  position: 'absolute',
+                  right: '-2rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  width: '1.5rem',
+                  height: '1.5rem',
+                  color: '#c084fc',
                   animation: 'bounce 1s infinite',
                   animationDelay: '0.2s'
                 }
@@ -189,69 +231,120 @@ export const Hero: React.FC = () => {
         </h1>
         
         {/* Sub-headline - Pyramid structure middle */}
-        <div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-3"
-              style={{
-                padding: '1rem 1.5rem',
-                borderRadius: '0.75rem',
-                background: 'linear-gradient(to right, rgba(34,197,94,0.1), rgba(16,185,129,0.1))',
-                border: '1px solid rgba(34,197,94,0.2)',
-                backdropFilter: 'blur(8px)',
-                WebkitBackdropFilter: 'blur(8px)',
-                marginBottom: '5rem',
-                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
-                fontFamily: "'Space Grotesk', sans-serif",
-                letterSpacing: '0.05em'
-              }}
-            >
-          <span 
-              className="text-white font-bold font-mono text-lg tracking-wide drop-shadow-lg"
-              style={{ 
-                fontFamily: "'Space Grotesk', sans-serif",
-                textShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                letterSpacing: '0.05em'
-              }}
-            >{t.thatWorks247}</span>
-          <div className="flex gap-1">
+        <div style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.75rem',
+              padding: '1rem 1.5rem',
+              borderRadius: '0.75rem',
+              background: 'linear-gradient(to right, rgba(34,197,94,0.1), rgba(16,185,129,0.1))',
+              border: '1px solid rgba(34,197,94,0.2)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              marginBottom: '5rem',
+              boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
+              fontFamily: "'Space Grotesk', sans-serif",
+              letterSpacing: '0.05em'
+            }}>
+          <span style={{
+              color: '#ffffff',
+              fontWeight: 700,
+              fontSize: '1.125rem',
+              fontFamily: "'Space Grotesk', sans-serif",
+              textShadow: '0 4px 6px rgba(0,0,0,0.1)',
+              letterSpacing: '0.05em'
+            }}>{t.thatWorks247}</span>
+          <div style={{ display: 'flex', gap: '0.25rem' }}>
             {[...Array(3)].map((_, i) => (
-              <div 
-              className="w-2 h-2 rounded-full shadow-lg"
-              style={{ 
+              <div style={{
+                width: '0.5rem',
+                height: '0.5rem',
+                borderRadius: '50%',
                 backgroundColor: '#22c55e',
                 animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                 animationDelay: `${i * 0.3}s`
-              }}
-            ></div>
+              }}></div>
             ))}
           </div>
         </div>
         
         {/* Description - Pyramid structure bottom */}
-        <p 
-          className="text-lg sm:text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
-          style={{ letterSpacing: '0.1em' }}
-        >{t.heroTitle}</p>
+        <p style={{
+          fontSize: 'clamp(1.125rem, 2vw, 1.5rem)',
+          color: '#94a3b8',
+          marginBottom: '2rem',
+          maxWidth: '48rem',
+          margin: '0 auto 2rem',
+          lineHeight: '1.625',
+          fontWeight: 300,
+          letterSpacing: '0.1em'
+        }}>{t.heroTitle}</p>
         
-        <p 
-          className="text-base sm:text-lg md:text-xl text-slate-400 mb-20 max-w-4xl mx-auto leading-relaxed font-light"
-          style={{ letterSpacing: '0.05em' }}
-        >{t.heroSubtitle}</p>
+        <p style={{
+          fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+          color: '#64748b',
+          marginBottom: '5rem',
+          maxWidth: '56rem',
+          margin: '0 auto 5rem',
+          lineHeight: '1.625',
+          fontWeight: 300,
+          letterSpacing: '0.05em'
+        }}>{t.heroSubtitle}</p>
         
         {/* CTA Buttons - Pyramid structure base */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '1.5rem',
+          justifyContent: 'center',
+          maxWidth: '42rem',
+          margin: '0 auto'
+        }}>
           <a 
             href="#expertise" 
-            className="group px-10 py-4 bg-white/10 hover:bg-white/15 border border-white/20 hover:border-white/30 rounded-xl font-semibold text-white transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm shadow-lg shadow-white/10 font-sans hover:scale-105"
-            style={{ background: 'rgba(255,255,255,0.08)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.75rem',
+              padding: '1rem 2.5rem',
+              background: 'rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              borderRadius: '0.75rem',
+              color: '#ffffff',
+              fontWeight: 600,
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer',
+              textDecoration: 'none'
+            }}
           >
-            <span className="text-slate-200 font-medium">{t.viewExpertise}</span>
+            <span style={{ color: '#e2e8f0', fontWeight: 500 }}>{t.viewExpertise}</span>
           </a>
           <a 
             href="#contact" 
-            className="px-10 py-4 bg-gradient-to-r from-blue-700 via-blue-700 to-indigo-800 hover:from-blue-800 hover:via-blue-800 hover:to-indigo-900 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 font-sans animate-pulse"
-            style={{ background: 'linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #312e81 100%)' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.75rem',
+              padding: '1rem 2.5rem',
+              background: 'linear-gradient(135deg, #1d4ed8 0%, #3b82f6 50%, #312e81 100%)',
+              borderRadius: '0.75rem',
+              color: '#ffffff',
+              fontWeight: 600,
+              fontSize: '1rem',
+              transition: 'all 0.3s ease',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)'
+            }}
           >
-            <span className="font-bold">{t.startAutomationJourney}</span>
+            <span style={{ fontWeight: 700 }}>{t.startAutomationJourney}</span>
           </a>
         </div>
       </div>
@@ -263,14 +356,22 @@ export const Hero: React.FC = () => {
             nextSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-slate-400 hover:text-white transition-colors duration-300"
-        style={{ 
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          color: '#94a3b8',
+          transition: 'color 0.3s ease',
           cursor: 'pointer',
-          animation: 'bounce 1s infinite'
+          animation: 'bounce 1s infinite',
+          background: 'none',
+          border: 'none',
+          padding: 0
         }}
         aria-label="Scroll to expertise section"
       >
-        <ChevronDown className="w-6 h-6" />
+        <ChevronDown style={{ width: '1.5rem', height: '1.5rem' }} />
       </button>
     </section>
   );
