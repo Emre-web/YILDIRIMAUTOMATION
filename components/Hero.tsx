@@ -41,23 +41,38 @@ export const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
+        position: 'relative',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        overflow: 'hidden',
         background: 'linear-gradient(to bottom right, #0f172a, #581c87, #000000)'
       }}
     >
       {/* Animated background elements */}
-      <div className="absolute inset-0">
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
         <div 
-        className="absolute top-0 left-0 w-96 h-96 rounded-full"
         style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '24rem',
+          height: '24rem',
+          borderRadius: '50%',
           backgroundColor: 'rgba(148, 5, 141, 0.1)',
           filter: 'blur(64px)'
         }}
       ></div>
       <div 
-        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
         style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          width: '24rem',
+          height: '24rem',
+          borderRadius: '50%',
           backgroundColor: 'rgba(107, 8, 121, 0.1)',
           filter: 'blur(64px)',
           animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',

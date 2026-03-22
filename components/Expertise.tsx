@@ -183,16 +183,15 @@ const expertises = {
 
 const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }> = ({ item, cardIndex }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { language } = useLanguage();
 
   return (
     <div 
-      className="glass-card p-8 rounded-2xl group transition-all duration-300"
       style={{
         background: 'rgba(30,41,59,0.5)',
         border: '1px solid rgba(255,255,255,0.1)',
         borderRadius: '1rem',
         padding: '2rem',
-        transition: 'all 0.3s ease'
       }}
     >
       {isExpanded ? (
@@ -237,24 +236,35 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
           </div>
         </div>
         <div 
-          className={`transition-all duration-300 overflow-hidden ${
-            isExpanded ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
-          }`}
+          style={{
+            transition: 'all 0.3s ease',
+            overflow: 'hidden',
+            maxHeight: isExpanded ? '24rem' : '0',
+            opacity: isExpanded ? '1' : '0',
+            marginTop: isExpanded ? '1rem' : '0'
+          }}
         >
-          <div className="border-t border-white/5 pt-4">
-            <h4 className="text-sm font-semibold text-blue-400 mb-3">IMPLEMENTATION DETAILS</h4>
-            <ul className="space-y-2">
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '1rem' }}>
+            <h4 style={{ fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#60a5fa' }}>IMPLEMENTATION DETAILS</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {item.details.map((detail, idx) => (
-                <li key={idx} className="flex items-start">
-                  <span className="text-blue-400 mr-2">•</span>
-                  <span className="text-slate-400 text-sm">{detail}</span>
+                <li key={idx} style={{ display: 'flex', alignItems: 'flex-start' }}>
+                  <span style={{ color: '#60a5fa', marginRight: '0.5rem' }}>•</span>
+                  <span style={{ color: '#94a3b8', fontSize: '0.875rem' }}>{detail}</span>
                 </li>
               ))}
             </ul>
-            <div className="mt-6 pt-4 border-t border-white/5">
+          </div>
+          <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
               <a 
                 href="#contact" 
-                className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  fontSize: '0.875rem',
+                  color: '#60a5fa',
+                  transition: 'color 0.3s ease'
+                }}
               >
                 Request a free consultation
               </a>
@@ -264,23 +274,36 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
         
         <button 
           onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-auto pt-4 text-sm text-slate-500 hover:text-blue-400 transition-colors flex items-center cursor-pointer"
+          style={{
+            marginTop: 'auto',
+            paddingTop: '1rem',
+            fontSize: '0.875rem',
+            color: '#94a3b8',
+            transition: 'color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            cursor: 'pointer'
+          }}
         >
           {isExpanded ? 'Show less' : 'Learn more'}
           <svg 
-            className={`w-4 h-4 ml-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
+            className="w-4 h-4 ml-1"
+            style={{ 
+              transition: 'transform 0.2s ease',
+              transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'
+            }} 
             xmlns="http://www.w3.org/2000/svg" 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            >
-              <path d="m6 9 6 6 6-6"/>
-            </svg>
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            <path d="m6 9 6 6"></path>
+          </svg>
         </button>
       </div>
     </div>
