@@ -40,16 +40,44 @@ export const Hero: React.FC = () => {
   }, [subIndex, reverse, index, language]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950/20 to-black">
+    <section 
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        background: 'linear-gradient(to bottom right, #062263, #15014d, #000000)'
+      }}
+    >
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div 
+        className="absolute top-0 left-0 w-96 h-96 rounded-full"
+        style={{
+          backgroundColor: 'rgba(148, 5, 141, 0.1)',
+          filter: 'blur(64px)'
+        }}
+      ></div>
+      <div 
+        className="absolute bottom-0 right-0 w-96 h-96 rounded-full"
+        style={{
+          backgroundColor: 'rgba(107, 8, 121, 0.1)',
+          filter: 'blur(64px)',
+          animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          animationDelay: '2s'
+        }}
+      ></div>
       </div>
       
       {/* Data node constellation pattern */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(100,200,255,0.15) 1px, transparent 0)', backgroundSize: '50px 50px' }}></div>
+      <div 
+        className="absolute inset-0"
+        style={{ opacity: 0.3, pointerEvents: 'none' }}
+      >
+        <div 
+          style={{ 
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(242, 100, 255, 0.15) 1px, transparent 0)', 
+            backgroundSize: '50px 50px' 
+          }}
+        ></div>
+      </div>
       
       {/* Soft blue light blooms */}
       <div className="absolute inset-0">
@@ -57,18 +85,54 @@ export const Hero: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-32 sm:pt-20">
+      <div 
+              className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center"
+              style={{ paddingTop: '8rem' }}
+            >
         {/* Eyebrow - Top small badge */}
-        <div className="relative z-50 inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/20 text-slate-300 text-xs sm:text-sm font-mono mb-8 sm:mb-12 tracking-wide backdrop-blur-sm shadow-lg shadow-green-500/20">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-lg shadow-green-500"></span>
-          <span className="font-sans text-xs sm:text-sm whitespace-nowrap">{t.availableForProjects}</span>
-        </div>
+        <div 
+              className="relative z-50 inline-flex items-center gap-2"
+              style={{
+                padding: '0.375rem 0.75rem 0.5rem 0.75rem',
+                borderRadius: '9999px',
+                background: 'linear-gradient(to right, rgba(34,197,94,0.1), rgba(16,185,129,0.1))',
+                border: '1px solid rgba(34,197,94,0.2)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
+                marginBottom: '2rem'
+              }}
+            >
+              <span 
+                className="w-2 h-2 rounded-full"
+                style={{
+                  backgroundColor: '#22c55e',
+                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                  boxShadow: '0 0 10px rgba(34,197,94,0.3), 0 10px 15px -3px rgba(34,197,94,0.3), 0 4px 6px -2px rgba(34,197,94,0.2)'
+                }}
+              ></span>
+              <span 
+                className="font-sans text-xs sm:text-sm whitespace-nowrap"
+                style={{ color: '#cbd5e1' }}
+              >{t.availableForProjects}</span>
+            </div>
         
         {/* Main Headline - Pyramid structure top */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading mb-16 leading-[1.0] tracking-tight max-w-6xl mx-auto">
-          <span className="text-white font-black block mb-4">{t.iBuild}</span>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-heading mb-16 leading-[1.0] tracking-tight max-w-6xl mx-auto"
+          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+        >
+          <span className="text-white font-black block mb-4" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{t.iBuild}</span>
           <div className="relative inline-flex items-center justify-center">
-            <span className="gradient-text relative z-10 bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent font-black">
+            <span 
+              className="gradient-text relative z-10"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                backgroundImage: 'linear-gradient(to right, #60a5fa, #3b82f6, #4f46e5)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent'
+              }}
+            >
               {words[language][index].substring(0, subIndex)}
             </span>
             <>
@@ -96,27 +160,44 @@ export const Hero: React.FC = () => {
         </h1>
         
         {/* Sub-headline - Pyramid structure middle */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 bg-gradient-to-r from-green-600/20 to-emerald-600/20 px-6 py-4 rounded-xl border border-green-500/30 backdrop-blur-sm mb-20 shadow-lg shadow-green-500/20 max-w-2xl mx-auto animate-pulse">
+        <div 
+              className="flex flex-col sm:flex-row items-center justify-center gap-3"
+              style={{
+                padding: '1rem 1.5rem',
+                borderRadius: '0.75rem',
+                background: 'linear-gradient(to right, rgba(34,197,94,0.1), rgba(16,185,129,0.1))',
+                border: '1px solid rgba(34,197,94,0.2)',
+                backdropFilter: 'blur(8px)',
+                WebkitBackdropFilter: 'blur(8px)',
+                marginBottom: '5rem',
+                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)'
+              }}
+            >
           <span className="text-white font-bold font-mono text-lg tracking-wide drop-shadow-lg">{t.thatWorks247}</span>
           <div className="flex gap-1">
             {[...Array(3)].map((_, i) => (
-              <div
-                key={i}
-                className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/70"
-                style={{ animationDelay: `${i * 0.3}s` }}
-              ></div>
+              <div 
+              className="w-2 h-2 rounded-full shadow-lg"
+              style={{ 
+                backgroundColor: '#22c55e',
+                animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                animationDelay: `${i * 0.3}s`
+              }}
+            ></div>
             ))}
           </div>
         </div>
         
         {/* Description - Pyramid structure bottom */}
-        <p className="text-lg sm:text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light tracking-wide" style={{ letterSpacing: '0.1em' }}>
-          {t.heroTitle}
-        </p>
+        <p 
+          className="text-lg sm:text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
+          style={{ letterSpacing: '0.1em' }}
+        >{t.heroTitle}</p>
         
-        <p className="text-base sm:text-lg md:text-xl text-slate-400 mb-20 max-w-4xl mx-auto leading-relaxed font-light" style={{ letterSpacing: '0.05em' }}>
-          {t.heroSubtitle}
-        </p>
+        <p 
+          className="text-base sm:text-lg md:text-xl text-slate-400 mb-20 max-w-4xl mx-auto leading-relaxed font-light"
+          style={{ letterSpacing: '0.05em' }}
+        >{t.heroSubtitle}</p>
         
         {/* CTA Buttons - Pyramid structure base */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-2xl mx-auto">
@@ -144,7 +225,11 @@ export const Hero: React.FC = () => {
             nextSection.scrollIntoView({ behavior: 'smooth' });
           }
         }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-400 hover:text-white transition-colors duration-300 cursor-pointer"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-slate-400 hover:text-white transition-colors duration-300"
+        style={{ 
+          cursor: 'pointer',
+          animation: 'bounce 1s infinite'
+        }}
         aria-label="Scroll to expertise section"
       >
         <ChevronDown className="w-6 h-6" />

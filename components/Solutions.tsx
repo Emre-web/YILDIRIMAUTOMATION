@@ -23,59 +23,31 @@ const solutions = [
       tr: "Web sitelerinden iş kritik verileri çıkarın"
     },
     description: {
-      en: "Build robust crawlers that handle IP rotation, CAPTCHAs, and dynamic rendering.",
-      tr: "IP rotasyonu, CAPTCHA ve dinamik rendering işleyen sağlam crawlerlar oluşturun."
+      en: 'Build tailored automation tools when off-the-shelf solutions fall short.',
+      tr: 'Hazır araçların yetersiz kaldığı durumlarda özel otomasyon araçları geliştiririz.'
     },
     details: {
-      en: "Automated data extraction provides real-time insights and competitive intelligence.",
-      tr: "Otomatik veri çıkarma gerçek zamanlı içgörüler ve rekabet istihbaratı sağlar."
+      en: ['Python scripting', 'API integrations', 'Custom UI development', 'Database design'],
+      tr: ['Python scriptleme', 'API entegrasyonları', 'Özel UI geliştirme', 'Veritabanı tasarımı']
     }
   },
   {
     title: {
-      en: "Replace manual Excel workflows with bots",
-      tr: "Manuel Excel iş akışlarını botlarla değiştirin"
+      en: 'Integration & Deployment',
+      tr: 'Entegrasyon ve Dağıtım'
     },
     description: {
-      en: "Transform complex spreadsheet tasks into streamlined, one-click automated pipelines.",
-      tr: "Karmaşık e-tablo görevlerini akıllı, tek tıklamalı otomatik pipelinelara dönüştürün."
+      en: 'Seamlessly connect new solutions with existing business systems.',
+      tr: 'Yeni çözümleri mevcut iş sistemleriyle sorunsuz birleştiririz.'
     },
     details: {
-      en: "Excel automation eliminates manual data entry and reduces processing time by 80%.",
-      tr: "Excel otomasyonu manuel veri girişini ortadan kaldırır ve işlem süresini %80 azaltır."
-    }
-  },
-  {
-    title: {
-      en: "Enterprise RPA solutions with UiPath",
-      tr: "UiPath ile kurumsal RPA çözümleri"
-    },
-    description: {
-      en: "Integrate high-level business process management with standard corporate software.",
-      tr: "Yüksek seviye iş süreci yönetimini standart kurumsal yazılımlarla entegre edin."
-    },
-    details: {
-      en: "Enterprise RPA delivers 300% ROI within the first year through process optimization.",
-      tr: "Kurumsal RPA süreç optimizasyonu ile ilk yıl içinde %300 yatırım getirisi sağlar."
-    }
-  },
-  {
-    title: {
-      en: "Custom automation tailored to your process",
-      tr: "Sürecinize özel otomasyon"
-    },
-    description: {
-      en: "We analyze your specific bottlenecks and build a bespoke solution that fits perfectly.",
-      tr: "Spesifik darboğazlarınızı analiz eder ve mükemmel uyum sağlayan özel bir çözüm oluştururuz."
-    },
-    details: {
-      en: "Custom solutions address unique business challenges that off-the-shelf tools cannot solve.",
-      tr: "Özel çözümler, hazır araçların çözemediği benzersiz iş zorluklarını ele alır."
+      en: ['ERP/CRM connections', 'API development', 'Cloud deployment', 'Real-time monitoring'],
+      tr: ['ERP/CRM bağlantıları', 'API geliştirme', 'Bulut dağıtımı', 'Gerçek zamanlı izleme']
     }
   }
 ];
 
-export const Solutions: React.FC = () => {
+export const SolutionsSection: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const { language, t } = useLanguage();
 
@@ -108,14 +80,15 @@ export const Solutions: React.FC = () => {
                   </p>
                   
                   <div 
-                      className={`transition-all duration-300 overflow-hidden ${
-                        expandedIndex === idx ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-                      }`}
-                    >
-                      <p className="text-purple-400 text-sm leading-relaxed">
-                        {item.details[language]}
-                      </p>
-                    </div>
+                    className={`transition-all duration-300 overflow-hidden ${
+                      expandedIndex === idx ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <ul className="text-purple-400 text-sm leading-relaxed list-disc pl-4">
+                      {Array.isArray(item.details[language]) ? item.details[language].map((detail, index) => (
+                        <li key={index}>{detail}</li>
+                      )) : item.details[language]}
+                    </ul>
                   </div>
                 </div>
               </div>
