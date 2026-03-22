@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setShowLangMenu(!showLangMenu)}
-                className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/30 hover:to-purple-600/30 border border-white/10 hover:border-white/20 transition-all duration-300"
+                className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/30 hover:to-purple-600/30 border border-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer"
               >
                 <Globe className="w-3.5 h-3.5 text-blue-400" />
                 <span className="text-xs font-medium text-white">{language.toUpperCase()}</span>
@@ -50,7 +50,7 @@ export const Navbar: React.FC = () => {
                 <div className="absolute right-0 mt-2 w-28 sm:w-32 bg-slate-900/98 backdrop-blur-xl border border-white/10 rounded-lg shadow-xl overflow-hidden">
                   <button
                     onClick={() => { setLanguage('en'); setShowLangMenu(false); }}
-                    className={`w-full text-left px-2 py-2 text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/5 ${
+                    className={`w-full text-left px-2 py-2 text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/5 cursor-pointer ${
                       language === 'en' ? 'text-blue-400 bg-white/5' : 'text-slate-300 hover:text-white'
                     }`}
                   >
@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
                   <div className="h-px bg-white/10"></div>
                   <button
                     onClick={() => { setLanguage('tr'); setShowLangMenu(false); }}
-                    className={`w-full text-left px-2 py-2 text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/5 ${
+                    className={`w-full text-left px-2 py-2 text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/5 cursor-pointer ${
                       language === 'tr' ? 'text-blue-400 bg-white/5' : 'text-slate-300 hover:text-white'
                     }`}
                   >

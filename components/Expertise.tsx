@@ -201,8 +201,8 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
             {item.icon}
           </div>
           <button 
-            onClick={() => isClient && setIsExpanded(!isExpanded)}
-            className="text-slate-500 hover:text-blue-400 transition-colors p-2 -mt-2 -mr-2"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-slate-500 hover:text-blue-400 transition-colors p-2 -mt-2 -mr-2 cursor-pointer"
             aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
           >
             {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -249,8 +249,8 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
         </div>
         
         <button 
-          onClick={() => isClient && setIsExpanded(!isExpanded)}
-          className="mt-auto pt-4 text-sm text-slate-500 hover:text-blue-400 transition-colors flex items-center"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="mt-auto pt-4 text-sm text-slate-500 hover:text-blue-400 transition-colors flex items-center cursor-pointer"
         >
           {isExpanded ? 'Show less' : 'Learn more'}
           {isClient && (

@@ -76,11 +76,24 @@ export const Hero: React.FC = () => {
             </span>
             {isClient && (
               <>
-                <span className="animate-pulse font-light text-purple-400 ml-1">|</span>
-                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-blue-600/30 to-indigo-600/30 rounded-lg blur-xl animate-pulse"></div>
+                <span 
+                className="animate-pulse font-light text-purple-400 ml-1"
+                style={{
+                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                }}
+              >|</span>
+                <div 
+                className="absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-blue-600/30 to-indigo-600/30 rounded-lg blur-xl"
+                style={{
+                  animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                }}
+              ></div>
                 {React.createElement(icons[index % icons.length], {
-                  className: "absolute -right-8 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-purple-400 animate-bounce",
-                  style: { animationDelay: '0.2s' }
+                  className: "absolute -right-8 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-purple-400",
+                  style: { 
+                    animation: 'bounce 1s infinite',
+                    animationDelay: '0.2s'
+                  }
                 })}
               </>
             )}
