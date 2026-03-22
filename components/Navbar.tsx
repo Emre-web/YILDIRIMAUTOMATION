@@ -37,22 +37,40 @@ export const Navbar: React.FC = () => {
             <a href="#contact" className="hover:text-white transition-colors">{t.contact}</a>
             
             <div className="relative">
-              <button
+              <button 
                 onClick={() => setShowLangMenu(!showLangMenu)}
-                className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-gradient-to-r from-blue-600/20 to-purple-600/20 hover:from-blue-600/30 hover:to-purple-600/30 border border-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.375rem',
+                  padding: '0.5rem 0.5rem',
+                  borderRadius: '0.5rem',
+                  background: 'linear-gradient(to right, rgba(37,99,235,0.2), rgba(147,51,234,0.2))',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer'
+                }}
               >
-                <Globe className="w-3.5 h-3.5 text-blue-400" />
-                <span className="text-xs font-medium text-white">{language.toUpperCase()}</span>
-                <ChevronDown className="w-2.5 h-2.5 text-white/70" />
+                <Globe style={{ width: '0.875rem', height: '0.875rem', color: '#60a5fa' }} />
+                <span style={{ fontSize: '0.75rem', fontWeight: '500', color: '#ffffff' }}>{language.toUpperCase()}</span>
+                <ChevronDown style={{ width: '0.625rem', height: '0.625rem', color: 'rgba(255,255,255,0.7)' }} />
               </button>
               
               {showLangMenu && (
-                <div className="absolute right-0 mt-2 w-28 sm:w-32 bg-slate-900/98 backdrop-blur-xl border border-white/10 rounded-lg shadow-xl overflow-hidden">
+                <div style={{ position: 'absolute', right: 0, marginTop: '0.5rem', width: '7rem', backgroundColor: 'rgba(15,23,42,0.98)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '0.5rem', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)', overflow: 'hidden' }}>
                   <button
                     onClick={() => { setLanguage('en'); setShowLangMenu(false); }}
-                    className={`w-full text-left px-2 py-2 text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/5 cursor-pointer ${
-                      language === 'en' ? 'text-blue-400 bg-white/5' : 'text-slate-300 hover:text-white'
-                    }`}
+                    style={{
+                      width: '100%',
+                      textAlign: 'left',
+                      padding: '0.5rem 0.5rem',
+                      fontSize: '0.75rem',
+                      fontWeight: '500',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer',
+                      backgroundColor: language === 'en' ? 'rgba(255,255,255,0.05)' : 'transparent',
+                      color: language === 'en' ? '#60a5fa' : '#cbd5e1'
+                    }}
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-sm">🇬🇧</span>
@@ -62,12 +80,20 @@ export const Navbar: React.FC = () => {
                   <div className="h-px bg-white/10"></div>
                   <button
                     onClick={() => { setLanguage('tr'); setShowLangMenu(false); }}
-                    className={`w-full text-left px-2 py-2 text-xs sm:text-sm font-medium transition-all duration-200 hover:bg-white/5 cursor-pointer ${
-                      language === 'tr' ? 'text-blue-400 bg-white/5' : 'text-slate-300 hover:text-white'
-                    }`}
+                    style={{
+                      width: '100%',
+                      textAlign: 'left',
+                      padding: '0.5rem 0.5rem',
+                      fontSize: '0.75rem',
+                      fontWeight: '500',
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer',
+                      backgroundColor: language === 'tr' ? 'rgba(255,255,255,0.05)' : 'transparent',
+                      color: language === 'tr' ? '#60a5fa' : '#cbd5e1'
+                    }}
                   >
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm">🇹🇷</span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.875rem' }}>�🇷</span>
                       <span>Türkçe</span>
                     </div>
                   </button>

@@ -43,7 +43,7 @@ export const Hero: React.FC = () => {
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(to bottom right, #062263, #15014d, #000000)'
+        background: 'linear-gradient(to bottom right, #0f172a, #581c87, #000000)'
       }}
     >
       {/* Animated background elements */}
@@ -81,14 +81,28 @@ export const Hero: React.FC = () => {
       
       {/* Soft blue light blooms */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400/3 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full"
+        style={{
+          backgroundColor: 'rgba(59,130,246,0.1)',
+          filter: 'blur(64px)',
+          animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          animationDelay: '3s'
+        }}
+      ></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full"
+        style={{
+          backgroundColor: 'rgba(168,85,247,0.1)',
+          filter: 'blur(64px)',
+          animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          animationDelay: '4s'
+        }}
+      ></div>
       </div>
 
       <div 
-              className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center"
-              style={{ paddingTop: '8rem' }}
-            >
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center"
+        style={{ paddingTop: '8rem' }}
+      >
         {/* Eyebrow - Top small badge */}
         <div 
               className="relative z-50 inline-flex items-center gap-2"

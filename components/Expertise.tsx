@@ -186,37 +186,56 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
 
   return (
     <div 
-      className={`glass-card p-8 rounded-2xl group transition-all duration-300 ${
-        isExpanded ? 'border border-blue-500/30 shadow-lg shadow-blue-500/10' : 'border border-white/5 hover:border-blue-500/10'
-      }`}
+      className="glass-card p-8 rounded-2xl group transition-all duration-300"
+      style={{
+        background: 'rgba(30,41,59,0.5)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: '1rem',
+        padding: '2rem',
+        transition: 'all 0.3s ease'
+      }}
     >
-      <div className="flex flex-col h-full">
-        <div className="flex items-start justify-between">
-          <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+      {isExpanded ? (
+        <div style={{ border: '1px solid rgba(59,130,246,0.3)', boxShadow: '0 10px 15px -3px rgba(59,130,246,0.1), 0 4px 6px -2px rgba(59,130,246,0.05)' }}></div>
+      ) : (
+        <div style={{ border: '1px solid rgba(255,255,255,0.05)' }}></div>
+      )}
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          <div style={{ width: '3rem', height: '3rem', backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '0.75rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', transition: 'transform 0.3s ease' }}>
             {item.icon}
           </div>
           <button 
             onClick={() => setIsExpanded(!isExpanded)}
-            className="text-slate-500 hover:text-blue-400 transition-colors p-2 -mt-2 -mr-2 cursor-pointer"
+            style={{
+              color: isExpanded ? '#60a5fa' : '#94a3b8',
+              transition: 'color 0.3s ease',
+              padding: '0.5rem',
+              marginTop: '-0.5rem',
+              marginRight: '-0.5rem',
+              cursor: 'pointer',
+              background: 'none',
+              border: 'none'
+            }}
             aria-label={isExpanded ? 'Collapse details' : 'Expand details'}
           >
             {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
           </button>
         </div>
         
-        <h3 className="text-xl font-bold font-heading mb-3">{item.title}</h3>
-        <p className="text-slate-400 text-sm leading-relaxed mb-6">
+        <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', fontFamily: "'Space Grotesk', sans-serif", marginBottom: '0.75rem' }}>{item.title}</h3>
+        <p style={{ color: '#94a3b8', fontSize: '0.875rem', lineHeight: '1.625', marginBottom: '1.5rem' }}>
           {item.description}
         </p>
         
-        <div className="flex flex-wrap gap-2 mb-6">
-          {item.tools.map((tool, tidx) => (
-            <span key={tidx} className="text-[10px] uppercase tracking-wider font-semibold px-2 py-1 rounded bg-white/5 border border-white/5 text-slate-400">
-              {tool}
-            </span>
-          ))}
+        <div style={{ marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          <h4 style={{ fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{language === 'en' ? 'Tools & Technologies:' : 'Araçlar & Teknolojiler:'}</h4>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.75rem', color: '#cbd5e1' }}>
+            {item.tools.map((tool, toolIdx) => (
+              <span key={toolIdx} style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.5rem', borderRadius: '0.25rem' }}>{tool}</span>
+            ))}
+          </div>
         </div>
-        
         <div 
           className={`transition-all duration-300 overflow-hidden ${
             isExpanded ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
