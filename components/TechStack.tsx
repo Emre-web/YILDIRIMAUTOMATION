@@ -27,7 +27,7 @@ export const TechStack: React.FC = () => {
           {techs.map((tech, idx) => (
             <div 
               key={idx} 
-              className={`flex items-center justify-center p-8 glass-card rounded-xl text-slate-400 transition-all duration-300 font-bold tracking-tight cursor-default ${tech.color} hover:bg-slate-800/50 hover:-translate-y-1 hover:text-white`}
+              className={`flex items-center justify-center p-8 glass-card rounded-xl text-slate-400 transition-all duration-300 font-bold tracking-tight cursor-pointer ${tech.color} hover:bg-slate-800/50 hover:-translate-y-1 hover:text-white`}
             >
               {tech.name}
             </div>

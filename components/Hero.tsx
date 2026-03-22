@@ -13,17 +13,10 @@ export const Hero: React.FC = () => {
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [reverse, setReverse] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const { t, language } = useLanguage();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   // Typewriter effect logic
   useEffect(() => {
-    if (!isClient) return;
-    
     if (subIndex === words[language][index].length + 1 && !reverse) {
       setTimeout(() => setReverse(true), 2000);
       return;
@@ -36,11 +29,15 @@ export const Hero: React.FC = () => {
     }
 
     const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
-    }, reverse ? 75 : 150);
+      if (reverse) {
+        setSubIndex((prev) => prev - 1);
+      } else {
+        setSubIndex((prev) => prev + 1);
+      }
+    }, 100);
 
     return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse, isClient, language]);
+  }, [subIndex, reverse, index, language]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950/20 to-black">
@@ -72,31 +69,29 @@ export const Hero: React.FC = () => {
           <span className="text-white font-black block mb-4">{t.iBuild}</span>
           <div className="relative inline-flex items-center justify-center">
             <span className="gradient-text relative z-10 bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent font-black">
-              {isClient ? words[language][index].substring(0, subIndex) : words[language][0]}
+              {words[language][index].substring(0, subIndex)}
             </span>
-            {isClient && (
-              <>
-                <span 
+            <>
+              <span 
                 className="animate-pulse font-light text-purple-400 ml-1"
                 style={{
                   animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
                 }}
               >|</span>
-                <div 
+              <div 
                 className="absolute -inset-4 bg-gradient-to-r from-blue-600/30 via-blue-600/30 to-indigo-600/30 rounded-lg blur-xl"
                 style={{
                   animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
                 }}
               ></div>
-                {React.createElement(icons[index % icons.length], {
-                  className: "absolute -right-8 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-purple-400",
-                  style: { 
-                    animation: 'bounce 1s infinite',
-                    animationDelay: '0.2s'
-                  }
-                })}
-              </>
-            )}
+              {React.createElement(icons[index % icons.length], {
+                className: "absolute -right-8 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-8 sm:h-8 text-purple-400",
+                style: { 
+                  animation: 'bounce 1s infinite',
+                  animationDelay: '0.2s'
+                }
+              })}
+            </>
           </div>
         </h1>
         

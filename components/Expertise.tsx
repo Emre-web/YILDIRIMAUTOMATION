@@ -183,11 +183,6 @@ const expertises = {
 
 const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }> = ({ item, cardIndex }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <div 
@@ -253,10 +248,9 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
           className="mt-auto pt-4 text-sm text-slate-500 hover:text-blue-400 transition-colors flex items-center cursor-pointer"
         >
           {isExpanded ? 'Show less' : 'Learn more'}
-          {isClient && (
-            <svg 
-              className={`w-4 h-4 ml-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
-              xmlns="http://www.w3.org/2000/svg" 
+          <svg 
+            className={`w-4 h-4 ml-1 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} 
+            xmlns="http://www.w3.org/2000/svg" 
               width="24" 
               height="24" 
               viewBox="0 0 24 24" 
@@ -268,7 +262,6 @@ const ServiceCard: React.FC<{ item: typeof expertises.en[0]; cardIndex: number }
             >
               <path d="m6 9 6 6 6-6"/>
             </svg>
-          )}
         </button>
       </div>
     </div>

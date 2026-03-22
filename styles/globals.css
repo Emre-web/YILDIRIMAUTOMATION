@@ -235,7 +235,7 @@ h1, h2, h3, h4, .font-heading {
   .xl\:text-3xl { font-size: 1.875rem; }
 }
 
-/* Animations */
+/* Animations - ALL REQUIRED */
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -252,6 +252,11 @@ h1, h2, h3, h4, .font-heading {
   100% { background-position: 0% 50%; }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
@@ -263,6 +268,10 @@ h1, h2, h3, h4, .font-heading {
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-move 8s ease infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
 /* Scrollbar */

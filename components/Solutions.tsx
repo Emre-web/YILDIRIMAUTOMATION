@@ -77,12 +77,7 @@ const solutions = [
 
 export const Solutions: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [isClient, setIsClient] = useState(false);
   const { language, t } = useLanguage();
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <section id="solutions" className="py-24 px-6">
@@ -99,7 +94,7 @@ export const Solutions: React.FC = () => {
             <div 
               key={idx} 
               className="group relative pl-12 md:pl-16 pb-12 border-l border-slate-800 last:border-0 cursor-pointer"
-              onClick={() => isClient && setExpandedIndex(expandedIndex === idx ? null : idx)}
+              onClick={() => setExpandedIndex(expandedIndex === idx ? null : idx)}
             >
               <div className="absolute left-[-5px] top-0 w-[9px] h-[9px] rounded-full bg-purple-500 ring-4 ring-purple-500/10 group-hover:scale-150 transition-transform"></div>
               
@@ -112,8 +107,7 @@ export const Solutions: React.FC = () => {
                     {item.description[language]}
                   </p>
                   
-                  {isClient && (
-                    <div 
+                  <div 
                       className={`transition-all duration-300 overflow-hidden ${
                         expandedIndex === idx ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
                       }`}
@@ -122,7 +116,7 @@ export const Solutions: React.FC = () => {
                         {item.details[language]}
                       </p>
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </div>
