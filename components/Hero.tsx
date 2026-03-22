@@ -170,10 +170,19 @@ export const Hero: React.FC = () => {
                 backdropFilter: 'blur(8px)',
                 WebkitBackdropFilter: 'blur(8px)',
                 marginBottom: '5rem',
-                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)'
+                boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)',
+                fontFamily: "'Space Grotesk', sans-serif",
+                letterSpacing: '0.05em'
               }}
             >
-          <span className="text-white font-bold font-mono text-lg tracking-wide drop-shadow-lg">{t.thatWorks247}</span>
+          <span 
+              className="text-white font-bold font-mono text-lg tracking-wide drop-shadow-lg"
+              style={{ 
+                fontFamily: "'Space Grotesk', sans-serif",
+                textShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                letterSpacing: '0.05em'
+              }}
+            >{t.thatWorks247}</span>
           <div className="flex gap-1">
             {[...Array(3)].map((_, i) => (
               <div 
